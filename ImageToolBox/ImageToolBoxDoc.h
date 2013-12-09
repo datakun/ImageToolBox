@@ -4,7 +4,7 @@
 
 
 #pragma once
-#include "D:\SigmaDream\Desktop\영상처리 스터디 자료\IT EXPERT - 영상 처리 프로그래밍 by Visual C++_소스\source\ch04\DibCreate\Dib.h"
+#include "Dib.h"
 
 
 class CImageToolBoxDoc : public CDocument
