@@ -42,10 +42,10 @@
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\SigmaDream\Desktop\영상처리 스터디 자료\IT EXPERT - 영상 처리 프로그래밍 by Visual C++_소스\source\ch04\DibCreate\Dib.h">
+    <ClInclude Include="Dib.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\..\..\SigmaDream\Desktop\영상처리 스터디 자료\IT EXPERT - 영상 처리 프로그래밍 by Visual C++_소스\source\ch04\DibCreate\RGBBYTE.h">
+    <ClInclude Include="RGBBYTE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -68,13 +68,13 @@
     <ClCompile Include="ImageToolBoxView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\SigmaDream\Desktop\영상처리 스터디 자료\IT EXPERT - 영상 처리 프로그래밍 by Visual C++_소스\source\ch04\DibCreate\Dib.cpp">
+    <ClCompile Include="Dib.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\SigmaDream\Desktop\영상처리 스터디 자료\IT EXPERT - 영상 처리 프로그래밍 by Visual C++_소스\source\ch04\DibCreate\DibBmp.cpp">
+    <ClCompile Include="DibBmp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\..\SigmaDream\Desktop\영상처리 스터디 자료\IT EXPERT - 영상 처리 프로그래밍 by Visual C++_소스\source\ch04\DibCreate\RGBBYTE.cpp">
+    <ClCompile Include="RGBBYTE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

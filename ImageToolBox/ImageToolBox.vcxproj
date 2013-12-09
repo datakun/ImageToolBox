@@ -101,26 +101,26 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\SigmaDream\Desktop\영상처리 스터디 자료\IT EXPERT - 영상 처리 프로그래밍 by Visual C++_소스\source\ch04\DibCreate\Dib.h" />
-    <ClInclude Include="..\..\..\..\..\SigmaDream\Desktop\영상처리 스터디 자료\IT EXPERT - 영상 처리 프로그래밍 by Visual C++_소스\source\ch04\DibCreate\RGBBYTE.h" />
     <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="Dib.h" />
     <ClInclude Include="ImageToolBox.h" />
     <ClInclude Include="ImageToolBoxDoc.h" />
     <ClInclude Include="ImageToolBoxView.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="Resource.h" />
+    <ClInclude Include="RGBBYTE.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\SigmaDream\Desktop\영상처리 스터디 자료\IT EXPERT - 영상 처리 프로그래밍 by Visual C++_소스\source\ch04\DibCreate\Dib.cpp" />
-    <ClCompile Include="..\..\..\..\..\SigmaDream\Desktop\영상처리 스터디 자료\IT EXPERT - 영상 처리 프로그래밍 by Visual C++_소스\source\ch04\DibCreate\DibBmp.cpp" />
-    <ClCompile Include="..\..\..\..\..\SigmaDream\Desktop\영상처리 스터디 자료\IT EXPERT - 영상 처리 프로그래밍 by Visual C++_소스\source\ch04\DibCreate\RGBBYTE.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="Dib.cpp" />
+    <ClCompile Include="DibBmp.cpp" />
     <ClCompile Include="ImageToolBox.cpp" />
     <ClCompile Include="ImageToolBoxDoc.cpp" />
     <ClCompile Include="ImageToolBoxView.cpp" />
     <ClCompile Include="MainFrm.cpp" />
+    <ClCompile Include="RGBBYTE.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
