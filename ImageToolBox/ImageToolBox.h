@@ -14,11 +14,18 @@
 // See ImageToolBox.cpp for the implementation of this class
 //
 
+
+class CDib;
+
+
 class CImageToolBoxApp : public CWinApp
 {
 public:
 	CImageToolBoxApp();
+	~CImageToolBoxApp();
 
+public:
+	CDib* m_pNewDib;
 
 // Overrides
 public:
@@ -28,6 +35,10 @@ public:
 // Implementation
 	afx_msg void OnAppAbout();
 	DECLARE_MESSAGE_MAP()
+	afx_msg void OnEditPaste();
+	afx_msg void OnUpdateEditPaste(CCmdUI *pCmdUI);
 };
 
 extern CImageToolBoxApp theApp;
+
+void AfxNewImage(CDib& dib);

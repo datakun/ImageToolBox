@@ -47,8 +47,16 @@ protected:
 	void SetSearchContent(const CString& value);
 #endif // SHARED_HANDLERS
 public:
-	BOOL OnOpenDocument(LPCTSTR lpszPathName);
-	BOOL OnSaveDocument(LPCTSTR lpszPathName);
+	virtual BOOL OnOpenDocument(LPCTSTR lpszPathName);
+	virtual BOOL OnSaveDocument(LPCTSTR lpszPathName);
 	// Image Object
 	CDib m_Dib;
+	afx_msg void OnWindowDuplicate();
+	afx_msg void OnEditCopy();
+	afx_msg void OnGammaCorrection();
+	afx_msg void OnHistoEqualize();
+	afx_msg void OnImageBrightness();
+	afx_msg void OnImageContrast();
+	afx_msg void OnImageInverse();
+	afx_msg void OnViewHistogram();
 };

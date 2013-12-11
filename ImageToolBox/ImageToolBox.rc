@@ -72,9 +72,9 @@ STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSM
 CAPTION "Brightness"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
-    GROUPBOX        "Brightness Ratio Input",-1,7,7,172,64
-    CONTROL         "",1004,"msctls_trackbar32",TBS_AUTOTICKS | WS_TABSTOP,10,21,166,23
-    EDITTEXT        1005,72,51,40,14,ES_AUTOHSCROLL
+    GROUPBOX        "Brightness Ratio Input",IDD_BRIGHTNESS,7,7,172,64
+    CONTROL         "",IDC_BRIGHTNESS_SLIDER,"msctls_trackbar32",TBS_AUTOTICKS | WS_TABSTOP,10,21,166,23
+    EDITTEXT        IDC_BRIGHTNESS_EDIT,72,51,40,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "OK",IDOK,38,79,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,98,79,50,14
 END
@@ -85,8 +85,8 @@ CAPTION "Contrast"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Contrast Ratio Input",-1,7,7,172,64
-    CONTROL         "",1006,"msctls_trackbar32",TBS_AUTOTICKS | WS_TABSTOP,10,21,166,23
-    EDITTEXT        1007,72,51,40,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_CONTRAST_SLIDER,"msctls_trackbar32",TBS_AUTOTICKS | WS_TABSTOP,10,21,166,23
+    EDITTEXT        IDC_CONTRAST_EDIT,72,51,40,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "OK",IDOK,38,79,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,98,79,50,14
 END
@@ -98,14 +98,14 @@ FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Image Size",-1,7,7,135,56
     LTEXT           "W",-1,32,25,8,8
-    EDITTEXT        1001,67,22,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_WIDTH,67,22,40,14,ES_AUTOHSCROLL
     LTEXT           "Pixel",-1,114,25,17,8
     LTEXT           "H",-1,33,43,29,8
-    EDITTEXT        1002,67,40,40,14,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HEIGHT,67,40,40,14,ES_AUTOHSCROLL
     LTEXT           "Pixel",-1,114,43,17,8
     GROUPBOX        "Propeties",-1,7,68,135,34
     LTEXT           "Color Type",-1,15,85,47,8
-    COMBOBOX        1003,67,83,67,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_IMAGETYPE,67,83,67,30,CBS_DROPDOWNLIST | CBS_SORT | WS_VSCROLL | WS_TABSTOP
     DEFPUSHBUTTON   "OK",IDOK,22,109,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,76,109,50,14
 END
@@ -116,8 +116,8 @@ CAPTION "Gamma Correction"
 FONT 8, "MS Shell Dlg", 400, 0, 0x1
 BEGIN
     GROUPBOX        "Gamma Ratio Input",-1,7,7,172,64
-    CONTROL         "",1008,"msctls_trackbar32",TBS_AUTOTICKS | WS_TABSTOP,10,21,166,23
-    EDITTEXT        1009,72,51,40,14,ES_AUTOHSCROLL
+    CONTROL         "",IDC_GAMMA_SLIDER,"msctls_trackbar32",TBS_AUTOTICKS | WS_TABSTOP,10,21,166,23
+    EDITTEXT        IDC_GAMMA_EDIT,72,51,40,14,ES_AUTOHSCROLL
     DEFPUSHBUTTON   "OK",IDOK,38,79,50,14
     PUSHBUTTON      "Cancel",IDCANCEL,98,79,50,14
 END
@@ -278,17 +278,25 @@ BEGIN
         MENUITEM "&Copy\tCtrl+C",               ID_EDIT_COPY
         MENUITEM "&Paste\tCtrl+V",              ID_EDIT_PASTE
     END
-    POPUP "&View"
+    POPUP "View(&V)"
     BEGIN
-        MENUITEM "&Toolbar",                    ID_VIEW_TOOLBAR
-        MENUITEM "&Status Bar",                 ID_VIEW_STATUS_BAR
+        MENUITEM "Toolbar(&T)",                 ID_VIEW_TOOLBAR
+        MENUITEM "Statusbar(&S)",               ID_VIEW_STATUS_BAR
+        MENUITEM SEPARATOR
+        MENUITEM "Histogram(&H)",               ID_VIEW_HISTOGRAM
+        MENUITEM SEPARATOR
+        MENUITEM "1x Zoom(&1)",                 ID_VIEW_ZOOM1
+        MENUITEM "2x Zoom(&2)",                 ID_VIEW_ZOOM2
+        MENUITEM "3x Zoom(&3)",                 ID_VIEW_ZOOM3
+        MENUITEM "4x Zoom(&4)",                 ID_VIEW_ZOOM4
     END
-    POPUP "&Window"
+    POPUP "Image Process(&I)"
     BEGIN
-        MENUITEM "&New Window",                 ID_WINDOW_NEW
-        MENUITEM "&Cascade",                    ID_WINDOW_CASCADE
-        MENUITEM "&Tile",                       ID_WINDOW_TILE_HORZ
-        MENUITEM "&Arrange Icons",              ID_WINDOW_ARRANGE
+        MENUITEM "Inverse(&I)",                 ID_IMAGE_INVERSE
+        MENUITEM "Brightness(&B)...",           ID_IMAGE_BRIGHTNESS
+        MENUITEM "Contrast(&C)...",             ID_IMAGE_CONTRAST
+        MENUITEM "Correction(&G)...",           ID_GAMMA_CORRECTION
+        MENUITEM "Histogram Equalize(&E)",      ID_HISTO_EQUALIZE
     END
     POPUP "&Help"
     BEGIN
@@ -358,13 +366,13 @@ VS_VERSION_INFO VERSIONINFO
 BEGIN
     BLOCK "StringFileInfo"
     BEGIN
-        BLOCK "040904B0"
+        BLOCK "040904b0"
         BEGIN
-            VALUE "CompanyName", "TODO: <Company name>"
+            VALUE "CompanyName", "TODO: <SigmaDREAM>"
             VALUE "FileDescription", "ImageToolBox"
             VALUE "FileVersion", "1.0.0.1"
             VALUE "InternalName", "ImageToolBox.exe"
-            VALUE "LegalCopyright", "TODO: (c) <Company name>.  All rights reserved."
+            VALUE "LegalCopyright", "TODO: (c) SigmaDREAM>.  All rights reserved."
             VALUE "OriginalFilename", "ImageToolBox.exe"
             VALUE "ProductName", "TODO: <Product name>"
             VALUE "ProductVersion", "1.0.0.1"

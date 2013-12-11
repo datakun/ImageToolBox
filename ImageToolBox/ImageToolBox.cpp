@@ -12,6 +12,8 @@
 #include "ImageToolBoxDoc.h"
 #include "ImageToolBoxView.h"
 
+#include "Dib.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
@@ -26,12 +28,14 @@ BEGIN_MESSAGE_MAP(CImageToolBoxApp, CWinApp)
 	ON_COMMAND(ID_FILE_OPEN, &CWinApp::OnFileOpen)
 	// Standard print setup command
 	ON_COMMAND(ID_FILE_PRINT_SETUP, &CWinApp::OnFilePrintSetup)
+	ON_COMMAND(ID_EDIT_PASTE, &CImageToolBoxApp::OnEditPaste)
+	ON_UPDATE_COMMAND_UI(ID_EDIT_PASTE, &CImageToolBoxApp::OnUpdateEditPaste)
 END_MESSAGE_MAP()
 
 
 // CImageToolBoxApp construction
 
-CImageToolBoxApp::CImageToolBoxApp()
+CImageToolBoxApp::CImageToolBoxApp() : m_pNewDib(NULL)
 {
 	// support Restart Manager
 	m_dwRestartManagerSupportFlags = AFX_RESTART_MANAGER_SUPPORT_ALL_ASPECTS;
@@ -45,12 +49,19 @@ CImageToolBoxApp::CImageToolBoxApp()
 	// TODO: replace application ID string below with unique ID string; recommended
 	// format for string is CompanyName.ProductName.SubProduct.VersionInformation
 	SetAppID(_T("ImageToolBox.AppID.NoVersion"));
-
+	
 	// TODO: add construction code here,
 	// Place all significant initialization in InitInstance
 }
 
 // The one and only CImageToolBoxApp object
+
+
+CImageToolBoxApp::~CImageToolBoxApp()
+{
+	if (m_pNewDib != NULL)
+		delete m_pNewDib;
+}
 
 CImageToolBoxApp theApp;
 
@@ -198,4 +209,27 @@ void CImageToolBoxApp::OnAppAbout()
 // CImageToolBoxApp message handlers
 
 
+void AfxNewImage(CDib& dib)
+{
+	CImageToolBoxApp* pApp = (CImageToolBoxApp*)AfxGetApp();
+	pApp->m_pNewDib = &dib;
+	AfxGetMainWnd()->SendMessage(WM_COMMAND, ID_FILE_NEW);
+}
 
+
+void CImageToolBoxApp::OnEditPaste()
+{
+	// TODO: Add your command handler code here
+	CDib dib;
+	dib.PasteFromClipboard();
+
+	AfxNewImage(dib);
+}
+
+
+void CImageToolBoxApp::OnUpdateEditPaste(CCmdUI *pCmdUI)
+{
+	// TODO: Add your command update UI handler code here
+	pCmdUI->Enable(IsClipboardFormatAvailable(CF_DIB));
+
+}

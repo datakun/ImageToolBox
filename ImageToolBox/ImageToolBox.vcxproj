@@ -101,8 +101,14 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BrightnessDlg.h" />
     <ClInclude Include="ChildFrm.h" />
+    <ClInclude Include="ContrastDlg.h" />
     <ClInclude Include="Dib.h" />
+    <ClInclude Include="DibEnhancement.h" />
+    <ClInclude Include="FileNewDlg.h" />
+    <ClInclude Include="GammaCorrectionDlg.h" />
+    <ClInclude Include="HistogramDlg.h" />
     <ClInclude Include="ImageToolBox.h" />
     <ClInclude Include="ImageToolBoxDoc.h" />
     <ClInclude Include="ImageToolBoxView.h" />
@@ -113,9 +119,15 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BrightnessDlg.cpp" />
     <ClCompile Include="ChildFrm.cpp" />
+    <ClCompile Include="ContrastDlg.cpp" />
     <ClCompile Include="Dib.cpp" />
     <ClCompile Include="DibBmp.cpp" />
+    <ClCompile Include="DibEnhancement.cpp" />
+    <ClCompile Include="FileNewDlg.cpp" />
+    <ClCompile Include="GammaCorrectionDlg.cpp" />
+    <ClCompile Include="HistogramDlg.cpp" />
     <ClCompile Include="ImageToolBox.cpp" />
     <ClCompile Include="ImageToolBoxDoc.cpp" />
     <ClCompile Include="ImageToolBoxView.cpp" />

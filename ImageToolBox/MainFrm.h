@@ -28,7 +28,7 @@ public:
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-protected:  // control bar embedded members
+public:  // control bar embedded members
 	CToolBar          m_wndToolBar;
 	CStatusBar        m_wndStatusBar;
 

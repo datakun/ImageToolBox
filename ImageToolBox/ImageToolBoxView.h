@@ -41,8 +41,23 @@ protected:
 // Generated message map functions
 protected:
 	DECLARE_MESSAGE_MAP()
+
+protected:
+	void SetScrollSizeToFit(void);
+	void ShowImageInfo(CPoint point);
+
 public:
+	int m_nZoom;
 	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
+	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
+	afx_msg void OnViewZoom1();
+	afx_msg void OnViewZoom2();
+	afx_msg void OnViewZoom3();
+	afx_msg void OnViewZoom4();
+	afx_msg void OnUpdateViewZoom1(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewZoom2(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewZoom3(CCmdUI *pCmdUI);
+	afx_msg void OnUpdateViewZoom4(CCmdUI *pCmdUI);
 };
 
 #ifndef _DEBUG  // debug version in ImageToolBoxView.cpp
